@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrostatic Field Simulation</title>
+
+
+
+    <style>
+        input[type="number"] {
+            width: 80px; /* Adjust this value as needed */
+        }
+        input[type="range"] {
+            width: 100px; /* Makes range inputs take the full width of their container */
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas id="fieldCanvas" width="800" height="600" style="border:1px solid #000;"></canvas>
+    <script src="simulation.js"></script>
+
+    <div>
+        Potential Field<input type="checkbox" name="Potential Field" id="togglePotentialField">
+        Field Lines<input type="checkbox" name="field lines" id="toggleFieldLines" checked="true">
+        Waves<input type="checkbox" name="waves" id="toggleWaves" checked="true">
+
+        Charge Strength: <input type="range" id="chargeMagnitude" name="chargeMagnitude" min="0" max="1000"
+        step="50" value="100">
+    <span id="chargeMagnitudeValue">100</span>
+    </div>
+    <div id="mode-selection">
+        <button id="mode-positive">Add Positive Charge</button>
+        <button id="mode-negative">Add Negative Charge</button>
+        <button id="mode-pulse">Create Pulse</button>
+        <button id="mode-move">Move Charge</button>
+        <button id="mode-erase">Erase Charges</button>
+        <button id="resetButton">Reset Waves</button>
+        <button id="resetSimulationButton">Reset Simulation</button>
+
+    </div>
+    dx: <input type="number" name="spatial resolution (dx)" id="inputDx" value="5">
+    dt: <input type="number" name="time step (dt)" id="inputDt" value="1" step=".1">
+    fld: <input type="number" name="field line density" id="fld" value="6">
+
+
+    <div>
+        <div>
+            <span id="cflDisplay"></span>
+            <span id="cflStatus"></span>
+            <label for="potentialStrengthSlider">Potential Strength:</label>
+            <input type="range" id="potentialStrengthSlider" name="potentialStrength" min="0.1" max="2" step="0.1"
+                value="1">
+            <span id="potentialStrengthValue">1</span>
+
+
+
+
+        </div>
+</body>
+
+</html>
